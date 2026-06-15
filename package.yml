@@ -1,0 +1,11 @@
+---
+- name: Package Frontend Artifact
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Compress the build directory into a release archive
+      community.general.archive:
+        path: ./artifact-publisher/build
+        dest: ./release.tar.gz
+        format: gz
